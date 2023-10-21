@@ -1,6 +1,6 @@
-package com.Accenture.countriesassignment;
+package com.Accenture.countriesassignment.service.jsonParser;
 
-import com.Accenture.countriesassignment.domain.BaseCountry;
+import com.Accenture.countriesassignment.domain.country.BaseCountry;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Component
-public class CountryJsonParserImpl implements CountryJsonParserInt {
+public class CountryJsonParser implements ICountryJsonParser {
 
-    private static final Logger log = Logger.getLogger(CountryJsonParserImpl.class.getName());
+    private static final Logger log = Logger.getLogger(CountryJsonParser.class.getName());
 
     @Override
     public List<BaseCountry> parse(String json) {

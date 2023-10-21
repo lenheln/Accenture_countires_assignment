@@ -1,17 +1,16 @@
-package com.Accenture.countriesassignment;
+package com.Accenture.countriesassignment.service.requestSender;
 
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.logging.Logger;
 
 @Component
-public class RequestSender implements  RequestSenderInt{
+public class RequestSender implements IRequestSender {
 
     private static final Logger log = Logger.getLogger(RequestSender.class.getName());
     private static final int STATUS_CODE_OK = 200;
