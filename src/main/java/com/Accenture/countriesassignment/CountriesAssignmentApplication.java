@@ -29,7 +29,6 @@ public class CountriesAssignmentApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String...args) {
-
 		service.filterCountries(filter);
 		service.sortCounties(sorter);
 	}
