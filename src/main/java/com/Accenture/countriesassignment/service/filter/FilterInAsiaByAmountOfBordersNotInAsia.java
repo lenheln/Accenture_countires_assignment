@@ -1,13 +1,14 @@
 package com.Accenture.countriesassignment.service.filter;
 
-
 import com.Accenture.countriesassignment.domain.country.BaseCountry;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
+@Qualifier("filterInAsiaByAmountOfBordersNotInAsia")
 public class FilterInAsiaByAmountOfBordersNotInAsia implements SingleFilter {
 
     private static final String region = "Asia";

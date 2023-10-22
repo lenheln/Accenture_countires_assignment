@@ -6,6 +6,8 @@ import com.Accenture.countriesassignment.domain.country.BaseCountry;
 import com.Accenture.countriesassignment.service.filter.SingleFilter;
 import com.Accenture.countriesassignment.service.jsonParser.ICountryJsonParser;
 import com.Accenture.countriesassignment.service.sorter.Sorter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,22 +21,18 @@ public class CountryService {
 
     private final IRequestSender sender;
     private final ICountryJsonParser parser;
-    private final Sorter sorter;
-    private final SingleFilter filter;
 
-    public CountryService(RequestSender sender, ICountryJsonParser parser, Sorter sorter, SingleFilter filter) {
+    public CountryService(RequestSender sender, ICountryJsonParser parser) {
         this.sender = sender;
         this.parser = parser;
-        this.sorter = sorter;
-        this.filter = filter;
     }
 
-    public List<BaseCountry> sortCounties() {
+    public List<BaseCountry> sortCounties(Sorter sorter) {
         List<BaseCountry> countries = getAllCountries();
         return sorter.sort(countries);
     }
 
-    public BaseCountry filterCountries () {
+    public BaseCountry filterCountries (SingleFilter filter) {
         List<BaseCountry> countries = getAllCountries();
         return filter.filter(countries);
     }

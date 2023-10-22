@@ -3,11 +3,13 @@ package com.Accenture.countriesassignment.service.sorter;
 import com.Accenture.countriesassignment.domain.country.BaseCountry;
 import com.Accenture.countriesassignment.domain.country.utils.CountryPopulationDensity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@Qualifier("sortByPopulationDensityDesc")
 public class SortByPopulationDensityDesc implements Sorter {
 
     @Autowired

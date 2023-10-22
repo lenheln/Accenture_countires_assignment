@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 public class CountryPopulationDensity {
 
     public Double count(BaseCountry country) {
-        if((country.getPopulation() != null) && (country.getArea() != null)) {
-            if(country.getArea() == 0d)
-                return 0d;
-            return country.getPopulation() / country.getArea();
+        if((country.getPopulation() != null)
+                && (country.getArea() != null)
+                &&((country.getArea() != 0d))) {
+                return country.getPopulation() / country.getArea();
         }
-        return null;
+        return 0d;
     }
 }

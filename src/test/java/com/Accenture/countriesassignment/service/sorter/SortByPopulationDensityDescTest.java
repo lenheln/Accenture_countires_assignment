@@ -1,7 +1,6 @@
 package com.Accenture.countriesassignment.service.sorter;
 
 import com.Accenture.countriesassignment.domain.country.BaseCountry;
-import com.Accenture.countriesassignment.service.sorter.SortByPopulationDensityDesc;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,6 +46,36 @@ public class SortByPopulationDensityDescTest {
 
     @Test
     public void sortInCorrectOrder_whenDataIsValid() {
+        List<BaseCountry> sortedCountries = sorter.sort(countries);
+        Assertions.assertEquals(c2, sortedCountries.get(0));
+        Assertions.assertEquals(c1, sortedCountries.get(1));
+        Assertions.assertEquals(c3, sortedCountries.get(2));
+    }
+
+    @Test
+    public void sortInCorrectOrder_whenPopulationIsNull() {
+
+        c3.setPopulation(null);
+        List<BaseCountry> sortedCountries = sorter.sort(countries);
+        Assertions.assertEquals(c2, sortedCountries.get(0));
+        Assertions.assertEquals(c1, sortedCountries.get(1));
+        Assertions.assertEquals(c3, sortedCountries.get(2));
+    }
+
+    @Test
+    public void sortInCorrectOrder_whenAreaIsNull() {
+
+        c3.setArea(null);
+        List<BaseCountry> sortedCountries = sorter.sort(countries);
+        Assertions.assertEquals(c2, sortedCountries.get(0));
+        Assertions.assertEquals(c1, sortedCountries.get(1));
+        Assertions.assertEquals(c3, sortedCountries.get(2));
+    }
+
+    @Test
+    public void sortInCorrectOrder_whenAreaIsZero() {
+
+        c3.setArea(0d);
         List<BaseCountry> sortedCountries = sorter.sort(countries);
         Assertions.assertEquals(c2, sortedCountries.get(0));
         Assertions.assertEquals(c1, sortedCountries.get(1));

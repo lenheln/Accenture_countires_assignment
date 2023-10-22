@@ -1,7 +1,10 @@
 package com.Accenture.countriesassignment;
 
 import com.Accenture.countriesassignment.service.CountryService;
+import com.Accenture.countriesassignment.service.filter.SingleFilter;
+import com.Accenture.countriesassignment.service.sorter.Sorter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,10 +19,19 @@ public class CountriesAssignmentApplication implements CommandLineRunner{
 	@Autowired
 	private CountryService service;
 
+	@Autowired
+	@Qualifier("filterInAsiaByAmountOfBordersNotInAsia")
+	private SingleFilter filter;
+
+	@Autowired
+	@Qualifier("sortByPopulationDensityDesc")
+	private Sorter sorter;
+
 	@Override
 	public void run(String...args) {
-		service.filterCountries();
-		service.sortCounties();
+
+		service.filterCountries(filter);
+		service.sortCounties(sorter);
 	}
 
 }

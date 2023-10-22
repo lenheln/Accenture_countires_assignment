@@ -84,7 +84,7 @@ public class FilterInAsiaByAmountOfBordersNotInAsiaTest {
     }
 
     @Test
-    public void findCountryByCode_returnCorrectCountry_whenCodeCantBeFound() {
+    public void filter_returnCorrectCountry_whenCodeCantBeFound() {
         countries.remove(c3);
         BaseCountry c = filter.filter(countries);
         Assertions.assertEquals(c1, c);
