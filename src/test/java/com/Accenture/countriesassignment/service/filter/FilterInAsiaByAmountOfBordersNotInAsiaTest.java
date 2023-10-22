@@ -60,20 +60,20 @@ public class FilterInAsiaByAmountOfBordersNotInAsiaTest {
     }
 
     @Test
-    public void filter_returnCorrectCountry_whenDataIsValid() {
+    public void shouldReturnCorrectCountry_whenDataIsValid() {
         BaseCountry c = filter.filter(countries);
         Assertions.assertEquals(c1, c);
     }
 
     @Test
-    public void filter_returnCorrectCountry_whenRegionIsNull() {
+    public void shouldReturnCorrectCountry_whenRegionIsNull() {
         c4.setRegion(null);
         BaseCountry c = filter.filter(countries);
         Assertions.assertEquals(c1, c);
     }
 
     @Test
-    public void filter_returnCorrectCountry_whenBordersIsNull() {
+    public void shouldReturnCorrectCountry_whenBordersIsNull() {
         BaseCountry c6 = new BaseCountry();
         c6.setCca3("CODE_E_3");
         c6.setRegion("Asia");

@@ -24,21 +24,21 @@ public class CountryPopulationDensityTest {
     }
 
     @Test
-    public void return_0_whenAreaIsZero() {
+    public void shouldReturn_0_whenAreaIsZero() {
         c.setArea(0d);
         Double d = density.count(c);
         Assertions.assertEquals(0d, d);
     }
 
     @Test
-    public void return_0_whenAreaIsNull() {
+    public void shouldReturn_0_whenAreaIsNull() {
         c.setArea(null);
         Double d = density.count(c);
         Assertions.assertEquals(0d, d);
     }
 
     @Test
-    public void return_0_whenPopulationIsNull() {
+    public void shouldReturn_0_whenPopulationIsNull() {
         c.setPopulation(null);
         Double d = density.count(c);
         Assertions.assertEquals(0d, d);

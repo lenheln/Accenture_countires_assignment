@@ -45,7 +45,7 @@ public class SortByPopulationDensityDescTest {
     }
 
     @Test
-    public void sortInCorrectOrder_whenDataIsValid() {
+    public void shouldSortInCorrectOrder_whenDataIsValid() {
         List<BaseCountry> sortedCountries = sorter.sort(countries);
         Assertions.assertEquals(c2, sortedCountries.get(0));
         Assertions.assertEquals(c1, sortedCountries.get(1));
@@ -53,7 +53,7 @@ public class SortByPopulationDensityDescTest {
     }
 
     @Test
-    public void sortInCorrectOrder_whenPopulationIsNull() {
+    public void shouldSortInCorrectOrder_whenPopulationIsNull() {
 
         c3.setPopulation(null);
         List<BaseCountry> sortedCountries = sorter.sort(countries);
@@ -63,7 +63,7 @@ public class SortByPopulationDensityDescTest {
     }
 
     @Test
-    public void sortInCorrectOrder_whenAreaIsNull() {
+    public void shouldSortInCorrectOrder_whenAreaIsNull() {
 
         c3.setArea(null);
         List<BaseCountry> sortedCountries = sorter.sort(countries);
@@ -73,7 +73,7 @@ public class SortByPopulationDensityDescTest {
     }
 
     @Test
-    public void sortInCorrectOrder_whenAreaIsZero() {
+    public void shouldSortInCorrectOrder_whenAreaIsZero() {
 
         c3.setArea(0d);
         List<BaseCountry> sortedCountries = sorter.sort(countries);

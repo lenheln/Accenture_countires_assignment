@@ -23,10 +23,13 @@ public class CountryJsonParser implements ICountryJsonParser {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         List<BaseCountry> countries = new ArrayList<>();
-        try {
-            countries = mapper.readValue(json, new TypeReference<>(){});
-        } catch (JsonProcessingException e) {
-            log.warning(e.getMessage());
+        if(json != null) {
+            try {
+                countries = mapper.readValue(json, new TypeReference<>() {
+                });
+            } catch (JsonProcessingException e) {
+                log.warning(e.getMessage());
+            }
         }
         return countries;
     }

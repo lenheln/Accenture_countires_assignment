@@ -18,15 +18,13 @@ public class RequestSender implements IRequestSender {
     @Override
     public String send(String url) {
 
+        HttpClient client = HttpClient.newBuilder().build();
         HttpRequest request = HttpRequest.newBuilder(URI.create(url))
                 .GET()
                 .build();
 
-        HttpClient client = HttpClient.newBuilder().build();
-        HttpResponse<String> response = null;
-
         try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() != STATUS_CODE_OK)
                 log.warning(String.format("Request can't be performed. Status: %d Response: %s", response.statusCode(), response.body()));
             else
@@ -35,6 +33,6 @@ public class RequestSender implements IRequestSender {
             log.warning("Request can't be performed. " + e.getMessage());
         }
 
-        return null;
+        return "";
     }
 }
